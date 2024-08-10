@@ -13,7 +13,9 @@ function App() {
           <h1 className="text-white  text-4xl">Testing Layout</h1>
         </div>
       </div>
-      <div className="flex w-full h-[63px] bg-blue-800"></div>
+      <div className="flex w-full h-[63px] bg-blue-800">
+        <p className="text-white">Menu Layout</p>
+      </div>
     </div>
   );
 }
