@@ -26,7 +26,7 @@ const queryClient = new QueryClient({
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route element={<App />}>
+    <Route>
       <Route index element={<MinePage />} />
       <Route path="refinery" element={<RefineryPage />} />
       <Route path="market" element={<MarketPage />} />
