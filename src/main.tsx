@@ -9,11 +9,13 @@ import {
 } from "react-router-dom";
 import "./index.css";
 import App from "./App";
-import MinePage from "./views/Mine";
-import RefineryPage from "./views/Refinery";
-import MarketPage from "./views/Marketplace";
-import RankPage from "./views/Rank";
-import ProfilePage from "./views/Profile";
+import {
+  MinePage,
+  RefineryPage,
+  MarketPage,
+  RankPage,
+  ProfilePage,
+} from "./views";
 // this manifest is used temporarily for development purposes
 const manifestUrl =
   "https://raw.githubusercontent.com/ton-community/tutorials/main/03-client/test/public/tonconnect-manifest.json";
