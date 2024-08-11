@@ -10,7 +10,7 @@ function NavigationBar() {
     { icon: Profile, title: "Profile", isActive: false },
   ];
   return (
-    <div className="fixed bottom-4 flex w-full px-[14px] z-50">
+    <div className="mb-4 flex w-full px-[14px] z-50">
       <div className="flex bg-menuBg w-full p-2 justify-between items-center rounded-md">
         {items.map((item, index) => (
           <div

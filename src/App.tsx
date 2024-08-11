@@ -11,7 +11,7 @@ function App() {
     <div className="flex flex-col h-screen bg-slate-800 overflow-hidden">
       <div className="flex flex-col px-[14px] flex-1 w-full  shadow-xl">
         <div className="border border-red-500 h-full flex justify-center items-center">
-          <h1 className="text-white  text-4xl">Testing Layout again</h1>
+          <h1 className="text-white  text-4xl">Let's Mine ⛏️</h1>
         </div>
       </div>
 
