@@ -6,9 +6,9 @@ function App() {
   return (
     <div className="flex flex-col h-screen bg-[#18181B] overflow-hidden">
       <div className="flex flex-col px-[14px] flex-1 w-full  shadow-xl">
-        <Outlet />
+        {/* <Outlet /> */}
       </div>
-      {/* <NavigationBar /> */}
+      <NavigationBar />
     </div>
   );
 }
