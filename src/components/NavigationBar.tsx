@@ -15,7 +15,9 @@ function NavigationBar() {
         {items.map((item, index) => (
           <div
             key={index}
-            className="flex flex-col flex-1 items-center justify-center gap-[2px] self-stretch py-2"
+            className={`${
+              item.isActive ? "rounded-[4px] bg-menuBg " : ""
+            } flex flex-col flex-1 items-center justify-center gap-[2px] self-stretch py-2`}
           >
             <img
               src={item.icon}
