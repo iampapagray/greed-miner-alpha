@@ -24,8 +24,8 @@ function NavigationBar() {
   };
 
   return (
-    <div className="mb-4 flex w-full px-[14px] z-50">
-      <div className="flex bg-menuBg w-full p-2 justify-between items-center rounded-md">
+    <div className="mb-6 flex w-full px-[14px] z-50">
+      <div className="flex bg-[#1D1001] w-full p-2 justify-between items-center rounded-md">
         {items.map((item, index) => (
           <div
             key={index}
