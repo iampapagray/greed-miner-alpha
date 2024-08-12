@@ -4,6 +4,7 @@ import ReactDOM from "react-dom/client";
 import {
   createHashRouter,
   createRoutesFromElements,
+  Navigate,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -26,12 +27,14 @@ const queryClient = new QueryClient({
 
 const router = createHashRouter(
   createRoutesFromElements(
-    <Route path="/greed-miner-alpha/" element={<App />}>
+    <Route path="/" element={<App />}>
       <Route index element={<MinePage />} />
-      <Route path="/greed-miner-alpha/#/refinery" element={<RefineryPage />} />
-      <Route path="/greed-miner-alpha/#/market" element={<MarketPage />} />
-      <Route path="/greed-miner-alpha/#/rank" element={<RankPage />} />
-      <Route path="/greed-miner-alpha/#/profile" element={<ProfilePage />} />
+      <Route path="/refinery" element={<RefineryPage />} />
+      <Route path="/market" element={<MarketPage />} />
+      <Route path="/rank" element={<RankPage />} />
+      <Route path="/profile" element={<ProfilePage />} />
+
+      <Route path="*" element={<Navigate to="/" replace />} />
     </Route>
   )
 );
