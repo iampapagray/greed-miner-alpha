@@ -26,12 +26,12 @@ const queryClient = new QueryClient({
 
 const router = createHashRouter(
   createRoutesFromElements(
-    <Route element={<App />}>
+    <Route path="/greed-miner-alpha/" element={<App />}>
       <Route index element={<MinePage />} />
-      <Route path="/greed-miner-alpha/#refinery" element={<RefineryPage />} />
-      <Route path="/greed-miner-alpha/#market" element={<MarketPage />} />
-      <Route path="/greed-miner-alpha/#rank" element={<RankPage />} />
-      <Route path="/greed-miner-alpha/#profile" element={<ProfilePage />} />
+      <Route path="/greed-miner-alpha/#/refinery" element={<RefineryPage />} />
+      <Route path="/greed-miner-alpha/#/market" element={<MarketPage />} />
+      <Route path="/greed-miner-alpha/#/rank" element={<RankPage />} />
+      <Route path="/greed-miner-alpha/#/profile" element={<ProfilePage />} />
     </Route>
   )
 );
