@@ -62,7 +62,6 @@ let githubUsername, githubRepo, botUsername;
 
   botUsername = getBot.data.result.username;
   const url = `https://${githubUsername}.github.io/${githubRepo}`;
-  const vercelUrl = 'https://greed-miner-alpha-git-main-iampapagrays-projects.vercel.app'
   console.log(`\n\nSetting bot ${botUsername} webapp url to ${url}`);
 
   const resp = await axios.post(

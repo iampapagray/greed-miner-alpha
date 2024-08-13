@@ -19,7 +19,8 @@ module.exports = {
     extend: {
       colors: {
         menuBg: 'rgba(255,255,255,0.1)',
-
+        tabBg: 'rgba(29, 16, 1, 0.3)',
+        darkTone: '#1D1001',
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
