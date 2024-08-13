@@ -14,7 +14,7 @@ import { Info } from "lucide-react";
 function MinePage() {
   return (
     <div className="h-full flex flex-col items-center">
-      <Tabs defaultValue="active" className="w-full h-full px-[10px]">
+      <Tabs defaultValue="active" className="w-full h-full px-[10px] pt-[10px]">
         <TabsList className="grid w-full h-auto grid-cols-2 bg-tabBg">
           <TabsTrigger
             className="data-[state=active]:bg-darkTone data-[state=active]:text-white"
