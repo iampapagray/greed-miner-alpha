@@ -10,6 +10,7 @@ import {
 import { passiveMenuIcon, activeMenuIcon } from "@/assets/images";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Info } from "lucide-react";
+import ScoreBoard from "@/components/ScoreBoard";
 
 function MinePage() {
   return (
@@ -41,8 +42,10 @@ function MinePage() {
           value="active"
           className=" w-full flex justify-center items-center"
         >
-          <div className="flex justify-content items-center">
-            <h1 className="text-white text-4xl">Let's Mine Up ⛏️</h1>
+          <div className="flex flex-col w-full justify-content items-center">
+            <ScoreBoard />
+
+            {/* <h1 className="text-white text-4xl">Let's Mine Up ⛏️</h1> */}
           </div>
         </TabsContent>
         <TabsContent

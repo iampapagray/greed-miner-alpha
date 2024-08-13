@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "GAMERIA";
+  font-style: normal;
+  font-weight: 400;
+  src: url("./assets/fonts/GAMERIA.ttf"); 
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

@@ -76,6 +76,7 @@ module.exports = {
       },
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+        game: ["GAMERIA", "sans-serif"],
       },
     },
   },
