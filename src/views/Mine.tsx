@@ -51,7 +51,7 @@ function MinePage() {
           <div className="flex h-full flex-col w-full justify-content items-center">
             <Spacer className="h-[2.8125rem]" />
             <ScoreBoard />
-            <Spacer className="h-[4.375rem]" />
+            <Spacer className="h-[4.075rem]" />
             <Heading />
             <Spacer className="h-[1.75rem]" />
             <Pit />
