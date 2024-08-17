@@ -10,6 +10,10 @@ import Axe from "./axe.png";
 import Flash from "./flash.png";
 import Plus from "./plus.png";
 import MineBackground from "./mineBg.svg"
+import Top from "./top.svg"
+import Left from "./left.svg"
+import Right from "./right.svg"
+import Bottom from "./bottom.svg"
 
 export {
   Marketplace,
@@ -23,5 +27,9 @@ export {
   Axe,
   Flash,
   Plus,
-  MineBackground
+  MineBackground,
+  Top,
+  Left,
+  Right,
+  Bottom
 };
