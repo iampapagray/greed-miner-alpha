@@ -11,11 +11,14 @@ import { passiveMenuIcon, activeMenuIcon } from "@/assets/images";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Info } from "lucide-react";
 import ScoreBoard from "@/components/ScoreBoard";
+import Heading from "@/components/Heading";
+import Pit from "@/components/Pit";
+import Spacer from "@/components/ui/Spacer";
 
 function MinePage() {
   return (
     <div className="h-full flex flex-col items-center">
-      <Tabs defaultValue="active" className="w-full h-full px-[10px] pt-[10px]">
+      <Tabs defaultValue="active" className="flex flex-col w-full h-full px-[10px] pt-[10px]">
         <TabsList className="grid w-full h-auto grid-cols-2 bg-tabBg">
           <TabsTrigger
             className="data-[state=active]:bg-darkTone data-[state=active]:text-white"
@@ -40,19 +43,23 @@ function MinePage() {
         </TabsList>
         <TabsContent
           value="active"
-          className=" w-full flex justify-center items-center"
+          className="w-full h-full flex justify-center items-center"
         >
-          <div className="flex flex-col w-full justify-content items-center">
+          <div className="flex h-full flex-col w-full justify-content items-center">
+            <Spacer className="h-[2.8125rem]" />
             <ScoreBoard />
-
-            {/* <h1 className="text-white text-4xl">Let's Mine Up ⛏️</h1> */}
+            <Spacer className="h-[4.375rem]" />
+            <Heading />
+            <Spacer className="h-[1.75rem]" />
+            <Pit />
+            <Spacer className="h-3" />
           </div>
         </TabsContent>
         <TabsContent
           value="passive"
-          className="w-full flex justify-center items-center"
+          className="w-full h-full flex justify-center items-center "
         >
-          <div className="flex justify-content items-center pt-5">
+          <div className="flex h-fulls flex-col w-full justify-content items-center ">
             <h1 className="text-white text-4xl">oh download cash 🙄</h1>
           </div>
         </TabsContent>

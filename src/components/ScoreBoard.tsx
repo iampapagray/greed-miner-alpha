@@ -1,4 +1,4 @@
-import { Axe, Flash, Gold } from "@/assets/images";
+import { Axe, Flash, Gold, Plus } from "@/assets/images";
 import React from "react";
 
 function ScoreBoard() {
@@ -7,7 +7,7 @@ function ScoreBoard() {
   const [axe, setAxe] = React.useState(20);
 
   return (
-    <div className="flex mt-[45px] w-full pl-[48px] pr-[35px] justify-content items-center">
+    <div className="flex w-full pl-[48px] pr-[35px] justify-content items-center">
       <div className=" w-full flex justify-between">
         <div className="relative py-2 flex justify-end items-center gap-[10px] pl-6 pr-4 bg-darkTone border border-[#b2d9171a] rounded-[4px]">
           <img
@@ -28,6 +28,12 @@ function ScoreBoard() {
           <p className="text-[#D1FA2D] text-center text-2xl leading-6 font-normal font-game">
             {flash}
           </p>
+          <img
+            src={Plus}
+            alt="Gold"
+            className="w-3 h-3 absolute -right-1.5 -top-1.5"
+            onClick={() => {}}
+          />
         </div>
         <div className="relative py-2 flex justify-end items-center gap-[10px] pl-6 pr-4 bg-darkTone border border-[#b2d9171a] rounded-[4px]">
           <img
@@ -38,6 +44,12 @@ function ScoreBoard() {
           <p className="text-[#FF4238] text-center text-2xl leading-6 font-normal font-game">
             {axe}
           </p>
+          <img
+            src={Plus}
+            alt="Gold"
+            className="w-3 h-3 absolute -right-1.5 -top-1.5"
+            onClick={() => {}}
+          />
         </div>
       </div>
     </div>

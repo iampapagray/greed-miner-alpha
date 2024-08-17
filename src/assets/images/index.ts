@@ -9,6 +9,7 @@ import Gold from "./stone_gold.png";
 import Axe from "./axe.png";
 import Flash from "./flash.png";
 import Plus from "./plus.png";
+import MineBackground from "./mineBg.svg"
 
 export {
   Marketplace,
@@ -22,4 +23,5 @@ export {
   Axe,
   Flash,
   Plus,
+  MineBackground
 };
