@@ -46,7 +46,7 @@ function MinePage() {
         </TabsList>
         <TabsContent
           value="active"
-          className="w-full h-full flex justify-center items-center bg-green-900"
+          className="w-full h-full flex justify-center items-center "
         >
           <div className="flex h-full flex-col w-full justify-content items-center">
             <Spacer className="h-[2.8125rem]" />
