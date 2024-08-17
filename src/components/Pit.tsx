@@ -6,7 +6,7 @@ function Pit() {
 
   return (
     <div className='relative h-full w-full'>
-        <div className="absolute bottom-0 top-0 -left-3 -right-3 bg-[url('/src/assets/images/mineBg.svg')] bg-center bg-no-repeat bg-contain px-[2.65rem] py-[6.4rem]">
+        <div className="absolute bottom-0 top-0 -left-3 -right-3 bg-[url('/src/assets/images/mineBg.svg')] bg-center bg-no-repeat bg-contain p-[2.65rem]">
           {/* <img src={MineBackground} className="absolute h-full w-full z-1" /> */}
           <div className="w-full h-full grid grid-cols-5 grid-row-5 gap-1">
             {buttonNumbers.map((number, i) => (
