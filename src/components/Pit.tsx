@@ -5,7 +5,7 @@ function Pit() {
   const buttonNumbers = Array.from({ length: 25 }, (_, i) => i + 1);
 
   return (
-    <div className="relative h-full w-full">
+    <div className="relative w-full">
       <div className="w-full h-full ">
         <img src={Top} className="w-full h-10" />
         <div className="flex min-h-fit">
