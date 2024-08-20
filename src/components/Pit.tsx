@@ -1,21 +1,13 @@
-import {
-  Bottom,
-  CleanBtn,
-  Crack1,
-  Crack2,
-  Crack3,
-  Left,
-  MineBackground,
-  Right,
-  Top,
-} from "@/assets/images";
-import React from "react";
+import { CleanBtn, Crack1, Crack2, Crack3, Right, Top } from "@/assets/images";
+import { useGamePlay } from "@/hooks/useGamePlay";
+// import React, { useEffect } from "react";
 
 function Pit() {
-  const buttonNumbers = Array.from({ length: 25 }, (_, i) => i + 1);
-  const [tapped, setTapped] = React.useState<number[]>([]);
+  // get all necessary data from useGamePlay hook
+  const { buttonNumbers, tapped, tapBlock, isMaxTapped, getBlockValue } =
+    useGamePlay();
 
-  const getBackground = (number: number) => {
+  const getBackground = (number: number, index: number) => {
     if (tapped.includes(number)) {
       const tapCount = tapped.filter((n) => n === number).length;
       switch (tapCount) {
@@ -26,7 +18,7 @@ function Pit() {
         case 3:
           return Crack3;
         default:
-          return CleanBtn;
+          return getBlockValue(number, index).toString();
       }
     }
     return CleanBtn;
@@ -40,14 +32,23 @@ function Pit() {
           <div className="w-fit h-full bg-[url('/src/assets/images/left.svg')] bg-center bg-no-repeat bg-contain" />
           <img src={Right} className="w-10 h-full" />
           <div className="flex-1 ">
-            <div className="h-full w-full grid grid-cols-5 grid-rows-5 gap-[1px] ">
+            <div className="h-full w-full grid grid-cols-5 grid-rows-5 ">
               {buttonNumbers.map((number, i) => (
                 <button
                   key={i}
                   className="rounded-lg flex justify-center items-center"
-                  onClick={() => setTapped([...tapped, number])}
+                  onClick={() => tapBlock(number, i)}
                 >
-                  <img src={getBackground(number)} className="w-full h-full" />
+                  {isMaxTapped(number) ? (
+                    <p className="font-game text-white text-3xl">
+                      {getBackground(number, i)}
+                    </p>
+                  ) : (
+                    <img
+                      src={getBackground(number, i)}
+                      className="w-full h-full"
+                    />
+                  )}
                 </button>
               ))}
             </div>
