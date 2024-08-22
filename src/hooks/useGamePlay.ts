@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAsyncInitialize } from "./useAsyncInitialize";
 
 export function useGamePlay() {
   const buttonNumbers = Array.from({ length: 25 }, (_, i) => i + 1);
-  const [round, rsetRound] = useState(1);
+  const [round, setRound] = useState(1);
   const [tapped, setTapped] = useState<number[]>([]);
   const [blockValues, setBlockValues] = useState<number[]>([]);
   const [score, setScore] = useState(0);
@@ -37,13 +37,15 @@ export function useGamePlay() {
   };
 
   const tapBlock = (number: number, index: number) => {
-    if (tapped.filter((n) => n === number).length > 4) {
+    if (tapped.filter((n) => n === number).length >= 4) {
       return;
     } else if (tapped.filter((n) => n === number).length === 3) {
       setTapped([...tapped, number]);
       const value = getBlockValue(number, index);
-      setScore(score + value);
-      console.log("score", score);
+      setScore(prevScore => {
+        const newScore = prevScore + value;
+        return newScore;
+      });
     } else {
       setTapped([...tapped, number]);
     }
@@ -58,16 +60,11 @@ export function useGamePlay() {
     console.log("Game started");
   }, []);
 
-  const getScore = () => {
-    return score;
-  };
-
   return {
     round,
     tapped,
     score,
     buttonNumbers,
-    getScore,
     isMaxTapped,
     getBlockValue,
     tapBlock,

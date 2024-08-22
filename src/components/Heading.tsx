@@ -1,19 +1,15 @@
-import { useGamePlay } from "@/hooks/useGamePlay";
 import React, { useEffect } from "react";
 
-function Heading() {
-  const { score, tapped, getScore } = useGamePlay();
+function Heading({ score }: { score: number }) {
+
   const [msg, setMsg] = React.useState("Tap on blocks to mine");
 
   useEffect(() => {
-    console.log("Score changed:", score);
-
-    if (score > 100) {
-      console.log("High score achieved!");
+    if (score > 0) {
+      setMsg("Score: " + score);
+    } else {
+      setMsg("Tap on blocks to mine");
     }
-
-    // If you want to call a function when the score changes:
-    // handleScoreChange(score);
   }, [score]);
 
   return (

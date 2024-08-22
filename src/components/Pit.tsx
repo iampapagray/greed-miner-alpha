@@ -1,15 +1,23 @@
 import { CleanBtn, Crack1, Crack2, Crack3, Right, Top } from "@/assets/images";
 import { useGamePlay } from "@/hooks/useGamePlay";
+import { tap } from "node:test/reporters";
 // import React, { useEffect } from "react";
 
-function Pit() {
-  // get all necessary data from useGamePlay hook
-  const { buttonNumbers, tapped, tapBlock, isMaxTapped, getBlockValue } =
-    useGamePlay();
+interface PitProps {
+  buttonNumbers: number[];
+  tapped: number[];
+  tapBlock: (number: number, index: number) => void;
+  isMaxTapped: (number: number) => boolean;
+  getBlockValue: (number: number, index: number) => number;
+}
+
+function Pit({ buttonNumbers, tapped, tapBlock, isMaxTapped, getBlockValue }: PitProps) {
+  
 
   const getBackground = (number: number, index: number) => {
     if (tapped.includes(number)) {
       const tapCount = tapped.filter((n) => n === number).length;
+      if (tapCount > 3) return getBlockValue(number, index).toString();
       switch (tapCount) {
         case 1:
           return Crack1;

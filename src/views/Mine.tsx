@@ -14,8 +14,12 @@ import ScoreBoard from "@/components/ScoreBoard";
 import Heading from "@/components/Heading";
 import Pit from "@/components/Pit";
 import Spacer from "@/components/ui/Spacer";
+import { useGamePlay } from "@/hooks/useGamePlay";
 
 function MinePage() {
+
+  const { score, buttonNumbers, tapped, tapBlock, isMaxTapped, getBlockValue } = useGamePlay();
+
   return (
     <div className="h-full flex flex-col items-center">
       <Tabs
@@ -52,10 +56,15 @@ function MinePage() {
             <Spacer className="h-[2.8125rem]" />
             <ScoreBoard />
             <Spacer className="h-[4.075rem]" />
-            <Heading />
+            <Heading score={score} />
             <Spacer className="h-[1.75rem]" />
-            <Pit />
-            {/* <Spacer className="h-3" /> */}
+            <Pit 
+              buttonNumbers={buttonNumbers} 
+              tapped={tapped} 
+              tapBlock={tapBlock} 
+              isMaxTapped={isMaxTapped} 
+              getBlockValue={getBlockValue}
+            />
           </div>
         </TabsContent>
         <TabsContent
