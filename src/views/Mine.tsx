@@ -18,7 +18,7 @@ import { useGamePlay } from "@/hooks/useGamePlay";
 
 function MinePage() {
 
-  const { score, buttonNumbers, tapped, tapBlock, isMaxTapped, getBlockValue } = useGamePlay();
+  const { score, buttonNumbers, round, tapped, tapBlock, isMaxTapped, getBlockValue } = useGamePlay();
 
   return (
     <div className="h-full flex flex-col items-center">
@@ -56,7 +56,7 @@ function MinePage() {
             <Spacer className="h-[2.8125rem]" />
             <ScoreBoard />
             <Spacer className="h-[4.075rem]" />
-            <Heading score={score} />
+            <Heading score={score} round={round} />
             <Spacer className="h-[1.75rem]" />
             <Pit 
               buttonNumbers={buttonNumbers} 

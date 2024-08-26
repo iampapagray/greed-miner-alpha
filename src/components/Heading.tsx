@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 
-function Heading({ score }: { score: number }) {
+function Heading({ score, round }: { score: number, round: number }) {
 
   const [msg, setMsg] = React.useState("Tap on blocks to mine");
 
   useEffect(() => {
     if (score > 0) {
-      setMsg("Score: " + score);
+      setMsg(`Round ${round}: ${score}`);
     } else {
       setMsg("Tap on blocks to mine");
     }

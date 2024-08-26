@@ -7,6 +7,9 @@ export function useGamePlay() {
   const [tapped, setTapped] = useState<number[]>([]);
   const [blockValues, setBlockValues] = useState<number[]>([]);
   const [score, setScore] = useState(0);
+  const [isGameOver, setIsGameOver] = useState(false);
+  const [movesLeft, setMovesLeft] = useState(3);
+  const [blockMoves, setBlockMoves] = useState(false);
 
   const generateBlockValues = () => {
     const result = [];
@@ -37,7 +40,7 @@ export function useGamePlay() {
   };
 
   const tapBlock = (number: number, index: number) => {
-    if (tapped.filter((n) => n === number).length >= 4) {
+    if (isMaxTapped(number) || blockMoves) {
       return;
     } else if (tapped.filter((n) => n === number).length === 3) {
       setTapped([...tapped, number]);
@@ -46,13 +49,39 @@ export function useGamePlay() {
         const newScore = prevScore + value;
         return newScore;
       });
+      setMovesLeft((prevMovesLeft) => {
+        const newMovesLeft = prevMovesLeft - 1;
+        if (newMovesLeft === 0) {
+          setBlockMoves(true);
+          setTimeout(() => {
+            setRound((prevRound) => {
+              const newRound = prevRound + 1;
+              setMovesLeft(3);
+              setTapped([]);
+              setBlockValues(generateBlockValues());
+              if (newRound === 4) {
+                setIsGameOver(true);
+                return 1;
+              } else {
+                return newRound;
+              }
+            });
+            setScore(0);
+            setBlockMoves(false);
+          }, 3000);
+        }
+        return newMovesLeft
+      });
     } else {
+      if (movesLeft === 3){
+        setScore(0);
+      }
       setTapped([...tapped, number]);
     }
   };
 
   const isMaxTapped = (number: number) => {
-    return tapped.filter((n) => n === number).length === 4;
+    return tapped.filter((n) => n === number).length >= 4;
   };
 
   useAsyncInitialize(async () => {
