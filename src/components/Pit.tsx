@@ -31,7 +31,7 @@ function Pit({ buttonNumbers, tapped, tapBlock, isMaxTapped, getBlockValue }: Pi
     }
     return CleanBtn;
   };
-
+  
   return (
     <div className="relative w-full hfull">
       <div className="w-full h-full ">

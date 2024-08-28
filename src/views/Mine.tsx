@@ -15,10 +15,11 @@ import Heading from "@/components/Heading";
 import Pit from "@/components/Pit";
 import Spacer from "@/components/ui/Spacer";
 import { useGamePlay } from "@/hooks/useGamePlay";
+import ScorePopup from "@/components/ScorePopup";
 
 function MinePage() {
 
-  const { score, buttonNumbers, round, tapped, tapBlock, isMaxTapped, getBlockValue } = useGamePlay();
+  const { score, buttonNumbers, round, tapped, tapBlock, isMaxTapped, getBlockValue, isScorePopupOpen, closeScorePopup } = useGamePlay();
 
   return (
     <div className="h-full flex flex-col items-center">
@@ -64,6 +65,11 @@ function MinePage() {
               tapBlock={tapBlock} 
               isMaxTapped={isMaxTapped} 
               getBlockValue={getBlockValue}
+            />
+            <ScorePopup 
+              isOpen={isScorePopupOpen} 
+              onClose={() => closeScorePopup()} 
+              score={score}
             />
           </div>
         </TabsContent>

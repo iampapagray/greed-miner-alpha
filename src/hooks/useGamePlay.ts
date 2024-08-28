@@ -10,6 +10,7 @@ export function useGamePlay() {
   const [isGameOver, setIsGameOver] = useState(false);
   const [movesLeft, setMovesLeft] = useState(3);
   const [blockMoves, setBlockMoves] = useState(false);
+  const [isScorePopupOpen, setIsScorePopupOpen] = useState(false);
 
   const generateBlockValues = () => {
     const result = [];
@@ -39,6 +40,24 @@ export function useGamePlay() {
     return 0;
   };
 
+  const closeScorePopup = () => {
+    setRound((prevRound) => {
+      const newRound = prevRound + 1;
+      setMovesLeft(3);
+      setTapped([]);
+      setBlockValues(generateBlockValues());
+      if (newRound === 4) {
+        setIsGameOver(true);
+        return 1;
+      } else {
+        return newRound;
+      }
+    });
+    setScore(0);
+    setBlockMoves(false);
+    setIsScorePopupOpen(false);
+  };
+
   const tapBlock = (number: number, index: number) => {
     if (isMaxTapped(number) || blockMoves) {
       return;
@@ -53,22 +72,7 @@ export function useGamePlay() {
         const newMovesLeft = prevMovesLeft - 1;
         if (newMovesLeft === 0) {
           setBlockMoves(true);
-          setTimeout(() => {
-            setRound((prevRound) => {
-              const newRound = prevRound + 1;
-              setMovesLeft(3);
-              setTapped([]);
-              setBlockValues(generateBlockValues());
-              if (newRound === 4) {
-                setIsGameOver(true);
-                return 1;
-              } else {
-                return newRound;
-              }
-            });
-            setScore(0);
-            setBlockMoves(false);
-          }, 3000);
+          setIsScorePopupOpen(true);
         }
         return newMovesLeft
       });
@@ -97,5 +101,7 @@ export function useGamePlay() {
     isMaxTapped,
     getBlockValue,
     tapBlock,
+    isScorePopupOpen,
+    closeScorePopup,
   };
 }
